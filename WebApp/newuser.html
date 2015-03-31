@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>What's Gouda?</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="./bootstrap.css" media="screen">
+    <link rel="stylesheet" href="./bootswatch.min.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../bower_components/html5shiv/dist/html5shiv.js"></script>
+      <script src="../bower_components/respond/dest/respond.min.js"></script>
+    <![endif]--> 
+  </head>
+  <body>
+    <h1>Create A New Account:</h1>
+    <form>
+        <div class="form-group">
+          <label class="col-lg-2 control-label">Username</label>
+          <div class="col-lg-10">
+          <input type="text" class="form-control" id="usernameInput" placeholder="Username">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-2 control-label">Email</label>
+          <div class="col-lg-10">
+          <input type="text" class="form-control" id="emailInput" placeholder="email">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-2 control-label">Password</label>
+          <div class="col-lg-10">
+          <input type="password" class="form-control" id="passwordInput">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-2 control-label">Confirm Password</label>
+          <div class="col-lg-10">
+          <input type="password" class="form-control" id="ConfirmPasswordInput">
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" onClick="handleNewUserSubmit(event)">Submit</button>
+    </form>
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src='newuser.js'></script>
+    <script src='xhr.js'></script>
+    <script src="./bootstrap.min.js"></script>
+    <script src="./bootswatch.js"></script>
+    <script type="text/javascript">
+      /* <![CDATA[ */
+      (function(){try{var s,a,i,j,r,c,l=document.getElementsByTagName("a"),t=document.createElement("textarea");for(i=0;l.length-i;i++){try{a=l[i].getAttribute("href");if(a&&a.indexOf("/cdn-cgi/l/email-protection") > -1  && (a.length > 28)){s='';j=27+ 1 + a.indexOf("/cdn-cgi/l/email-protection");if (a.length > j) {r=parseInt(a.substr(j,2),16);for(j+=2;a.length>j&&a.substr(j,1)!='X';j+=2){c=parseInt(a.substr(j,2),16)^r;s+=String.fromCharCode(c);}j+=1;s+=a.substr(j,a.length-j);}t.innerHTML=s.replace(/</g,"&lt;").replace(/>/g,"&gt;");l[i].setAttribute("href","mailto:"+t.value);}}catch(e){}}}catch(e){}})();
+      /* ]]> */
+    </script>
+
+  </body>
+</html>
