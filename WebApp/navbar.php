@@ -29,7 +29,7 @@
 
         <div class="collapse navbar-collapse" id="top-nav-bar">
           <ul class="nav navbar-nav">
-            <li><a href="#">Link</a></li>
+            <li><a href="./searchRecipe.php">Search Recipes</a></li>
             <li><a href="#">Link</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
@@ -64,9 +64,9 @@
 
           </ul>
 
-          <form class="navbar-form navbar-right" role="search">
+          <form class="navbar-form navbar-right" role="search" action="searchResult.php" method="POST">
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="Search">
+              <input type="text" name="searchterm" class="form-control" placeholder="Search Recipes">
             </div>
           </form>
         </div>
