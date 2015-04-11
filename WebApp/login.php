@@ -1,16 +1,16 @@
 <?php include "./backEnd/base.php"; ?>
   <?php include "navbar.php"; ?>
 
-    <?php
+<?php
     if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['username']))
     {
-         ?>
+?>
      
          <h1>Member Area</h1>
          <pThanks for logging in! You are <code><?=$_SESSION['username']?></code> and your email address is <code><?=$_SESSION['email']?></code>.</p>
          <a href="logout.php">Logout</a>
           
-         <?php
+<?php
     }
     elseif(!empty($_POST['username']) && !empty($_POST['password']))
     {
@@ -35,29 +35,56 @@
         else
         {
             echo "<h1>Error</h1>";
-            echo "<p>Sorry, your account could not be found. Please <a href=\"index.php\">click here to try again</a>.</p>";
+            echo "<p>Sorry, your account could not be found. Please <a href=\"login.php\">click here to try again</a>.</p>";
         }
     }
     else
     {
-        ?>
+?>
+      <div class="bs-docs-section">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="page-header">
+              <h1 id="forms">Member Login:</h1>
+            </div>
+          </div>
+        </div>
+        <div class="row"> 
+          <div class="col-lg-6"> 
+            <div class="well bs-component"> 
+              <p>Thanks for visiting! Please either login below, or <a href="signup.php">click here to register</a>.</p>
+              <form class="form-horizontal" method="post" action="login.php" name="loginform" id="loginform">
+                <fieldset>
+                  <!-- USERNAME -->
+                  <div class="form-group">
+                    <label class="col-lg-2 control-label">Username</label>
+                    <div class="col-lg-10">
+                      <input type="text" class="form-control" name="username" id="username" placeholder="Username" />
+                    </div>
+                  </div>
+                  <!-- PASSWORD -->
+                  <div class="form-group">
+                    <label class="col-lg-2 control-label">Password</label>
+                    <div class="col-lg-10">
+                      <input type="password" class="form-control" name="password" id="password" />
+                    </div>
+                  </div>
+                  <!-- BUTTON -->
+                  <div class="form-group">
+                    <div class="col-lg-10 col-lg-offset-2">
+                      <input type="submit" class="btn btn-primary" name="login" id="login" value="Login" />
+                    </div>
+                  </div>
+                </fieldset>
+              </form>
+            </div> 
+          </div>
+        </div>
+      </div>
          
-       <h1>Member Login</h1>
-         
-       <p>Thanks for visiting! Please either login below, or <a href="signup.php">click here to register</a>.</p>
-         
-        <form method="post" action="login.php" name="loginform" id="loginform">
-        <fieldset>
-            <label for="username">Username:</label><input type="text" name="username" id="username" /><br />
-            <label for="password">Password:</label><input type="password" name="password" id="password" /><br />
-            <input type="submit" name="login" id="login" value="Login" />
-        </fieldset>
-        </form>
-         
-       <?php
+<?php
     }
-    ?>
-     
+?>
     </div>
   </body>
 </html>

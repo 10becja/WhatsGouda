@@ -1,10 +1,12 @@
 <?php
 session_start();
  
-$dbhost = "localhost"; // this will ususally be 'localhost', but can sometimes differ
-$dbname = "gouda"; // the name of the database that you are going to use for this project
-$dbuser = "gouda"; // the username that you created, or were given, to access your database
-$dbpass = ""; // the password that you created, or were given, to access your database
+//$dbhost = "localhost"; // used when on server
+$dbhost = "104.236.86.166";  //used for local machine testing
+$dbname = "gouda";
+$dbuser = "gouda";
+//$dbpass = ""; // no password from server
+$dbpass = "cs411goudapassword"; //needed for remote connections
  
 mysql_connect($dbhost, $dbuser, $dbpass) or die("MySQL Error: " . mysql_error());
 mysql_select_db($dbname) or die("MySQL Error: " . mysql_error());
