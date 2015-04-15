@@ -1,6 +1,7 @@
 <?php include "./backEnd/base.php";?>
 <?php include "./navbar.php";?>
 
+
 <form Method="POST" action="./searchResult.php">
       <div class="form-group">
       <label>Search By Name of Recipe</label>
@@ -8,5 +9,6 @@
       </div>
       <button type="submit" class="btn btn-default">Search</button>
     </form>
+</div>
 </body>
 </html>

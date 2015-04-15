@@ -1,9 +1,35 @@
 <?php include "./backEnd/base.php"; ?>
+	<?php include "navbar.php"; ?>
 
-    <!--TOP NAVIGATION BAR-->
-    <?php include "navbar.php"; ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
 
     
-
+	</div>
   </body>
 </html>
