@@ -23,3 +23,7 @@ searchRecipe(mysql_real_escape_string($_POST["searchterm"]));
 
 
 ?>
+
+	</div>
+  </body>
+</html>

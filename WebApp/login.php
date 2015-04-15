@@ -41,7 +41,6 @@
     else
     {
 ?>
-      <div class="bs-docs-section">
         <div class="row">
           <div class="col-lg-12">
             <div class="page-header">
@@ -51,7 +50,7 @@
         </div>
         <div class="row"> 
           <div class="col-lg-6"> 
-            <div class="well bs-component"> 
+            <div class="well"> 
               <p>Thanks for visiting! Please either login below, or <a href="signup.php">click here to register</a>.</p>
               <form class="form-horizontal" method="post" action="login.php" name="loginform" id="loginform">
                 <fieldset>
@@ -80,7 +79,6 @@
             </div> 
           </div>
         </div>
-      </div>
          
 <?php
     }
