@@ -18,6 +18,7 @@ function printRecipe($recipe) {
 
 function printIngredientNames($recipeId){
 	$query = "SELECT * FROM Ingredient WHERE id IN (SELECT ingredientID as id FROM Requires WHERE recipeId=$recipeId)";
+	//If anyone knows a more efficient query, replace this^
 	$result = mysql_query($query);
 	while($row = mysql_fetch_array($result)) {
 		echo "<li>" . $row['name'] . "</li>";
