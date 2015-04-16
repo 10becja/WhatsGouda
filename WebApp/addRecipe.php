@@ -1,6 +1,28 @@
 <?php include "./backEnd/base.php";?>
 <?php include "./navbar.php";?>
-<?php
+<?php 
+	if(!empty($_POST['ingredients'])) {
+		$username = $_SESSION['username'];
+		$name = mysql_real_escape_string($_POST['name']);
+		$body = mysql_real_escape_string($_POST['instructions']);
+		//echo "<h1> $username, $name, $body </h1>";
+		$query = 'INSERT INTO Recipe (avgQuality, avgDifficulty, reviewCount, name, creatorUsername, body) VALUES (0,0,0, "' . $name . '", "' . $username. '", "' . $body . '")';
+		$result = mysql_query($query);
+		if(!$result) {
+			echo "<h1>There was an error processing your submission. Please try again.</h1>";
+		}
+		else {
+			$recipeId = mysql_insert_id();
+			$ingredients = explode(";", $_POST['ingredients']);
+			foreach ($ingredients as &$ingredient) {
+				$ingredientId = intval($ingredient);
+				$query = "INSERT INTO Requires VALUES ($recipeId , $ingredientId)";
+				mysql_query($query);
+			}
+
+			echo "<h1>Your recipe was successfully submitted!</h1>";
+		}
+	}
 	if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['username'])) {
 ?>
   <script src="./selectize.min.js" ></script>
@@ -10,7 +32,7 @@
       <div class="form-group">
         <label class="col-lg-2 control-label">Recipe Name</label>
         <div class="col-lg-10">
-          <input type="text" class="form-control" name="Name" id="Name" placeholder="Name" />
+          <input type="text" class="form-control" name="name" id="name" placeholder="Name" />
         </div>
       </div>
       <!-- Ingredients -->
@@ -24,7 +46,7 @@
       <div class="form-group">
         <label class="col-lg-2 control-label">Instructions</label>
         <div class="col-lg-10">
-          <textarea class="form-control" name="body" id="body" rows="3" placeholder="Type instructions here">
+          <textarea class="form-control" name="instructions" id="instructions" rows="3" placeholder="Type instructions here">
           </textarea>
         </div>
       </div>
@@ -37,14 +59,32 @@
     </fieldset>
   </form>
   <script>
+  	<?php
+  		$query = "SELECT * FROM Ingredient";
+  		$result = mysql_query($query);
+  		$num = 0;
+  		echo "options = [";
+  		while($row = mysql_fetch_array($result)) {
+  			if($num > 0) {
+  				echo ",";
+  			}
+  			echo "{value: '" . $row["id"] . "', text: '" . $row["name"] . "'}";
+  			$num = $num + 1;
+  		}
+  		echo "];";
+  	?>
   	$('#ingredients').selectize({
   		delimiter: ';',
+  		options: options,
+  		/**
   		create: function(input) {
   			return{
   				value: "!"+input,
   				text: input
   			}
   		}
+  		*/
+  		create: false
   	});
   </script>
 <?php
