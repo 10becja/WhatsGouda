@@ -1,41 +1,46 @@
 <?php include "./backEnd/base.php";?>
 <?php include "./navbar.php";?>
 <?php
-if(isset($_POST['delete']))
-{
-$recipe_name = $_POST['name'];
 
-$sql = "DELETE from Recipe ".
-       "WHERE recipe_name = $name" ;
-
-$retval = mysql_query($sql);
-if(! $retval )
+$query = 'SELECT * FROM Recipe';
+$result=mysql_query($query) or die("Query Failed : ".mysql_error());
+$i=0;
+while($rows=mysql_fetch_array($result))
 {
-  die('Could not delete data: ' . mysql_error());
+$name[$i]=$rows['name'];
+$i++;
 }
-echo "Deleted data successfully\n";
-}
-else
-{
+$total_elmt=count($name);
 ?>
-<form method="post" action="<?php $_PHP_SELF ?>">
-<table width="400" border="0" cellspacing="1" cellpadding="2">
-<tr>
-<td width="100">Recipe Name</td>
-<td><input name="emp_id" type="text" id="emp_id"></td>
-</tr>
-<tr>
-<td width="100"> </td>
-<td> </td>
-</tr>
-<tr>
-<td width="100"> </td>
-<td>
-<input name="delete" type="submit" id="delete" value="Delete">
-</td>
-</tr>
-</table>
-</form>
-<?php
+<form method="POST" action="">
+Select the Name to Delete: <select name="sel">
+<option>Select</option>
+<?php 
+for($j=0;$j<$total_elmt;$j++)
+{
+?><option><?php 
+echo $name[$j];
+?></option><?php
 }
+?>
+</select><br />
+
+<input name="submit" type="submit" value="Delete"/><br />
+
+</form>
+<p align=right><a href="view.php">VIEW RECORDS</a></p>
+<p align=right><a href="index.php">HOME</a></p>
+<?php
+
+if(isset($_POST['submit']))
+{
+$name=$_POST['sel'];
+
+
+$query = "DELETE FROM Recipe WHERE name='$name'";
+$result=mysql_query($query) or die("Query Failed : ".mysql_error());
+echo "Successfully Deleted!";
+}
+
+
 ?>
