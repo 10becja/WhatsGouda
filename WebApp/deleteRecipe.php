@@ -1,17 +1,8 @@
-
+<?php include "./backEnd/base.php";?>
+<?php include "./navbar.php";?>
 <?php
 if(isset($_POST['delete']))
 {
-$dbhost = "illinidev.net:3306";
-$dbuser = "gouda";
-$dbpass = "cs411goudapassword";
-$dbname = "gouda";
-
-// Create connection
-mysql_connect($dbhost, $dbuser, $dbpass) or die("MySQL Error: " . mysql_error());
-mysql_select_db($dbname) or die("MySQL Error: " . mysql_error());
-echo "\n";
-
 $recipe_name = $_POST['name'];
 
 $sql = "DELETE from Recipe ".
