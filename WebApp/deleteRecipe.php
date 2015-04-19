@@ -14,7 +14,7 @@ echo "\n";
 
 $recipe_name = $_POST['name'];
 
-$sql = "DELETE employee ".
+$sql = "DELETE from Recipe ".
        "WHERE recipe_name = $name" ;
 
 $retval = mysql_query($sql);
