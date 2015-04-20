@@ -40,7 +40,8 @@
       	<label class ="col-lg-2 control-label">Ingredients</label>
       	<div class="col-lg-10">
       	  <input type="text" name="ingredients" id="ingredients" />
-      	 </div>
+          <p>If you can't find an ingedient, try <a href="./createIngredient.php">creating one</a>.</p> 
+      	</div>
       </div>
       <!-- Instructions -->
       <div class="form-group">
