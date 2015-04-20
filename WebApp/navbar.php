@@ -41,8 +41,8 @@
                   <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Hi <?php echo $_SESSION['username']?>! <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                      <li><a href="./addRecipe">Add Recipe</a></li>
-                      <li><a href="./addIngredient">Add Ingredient</a></li>
+                      <li><a href="./addRecipe.php">Add Recipe</a></li>
+                      <li><a href="./addIngredient.php">Add Ingredient</a></li>
                       <li><a href="#">Something else here</a></li>
                       <li class="divider"></li>
                       <li><a href="#">Separated link</a></li>
