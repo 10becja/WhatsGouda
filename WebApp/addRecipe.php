@@ -25,7 +25,7 @@
 	}
 	if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['username'])) {
 ?>
-  <script src="./selectize.min.js" ></script>
+  <script src="./js/selectize.min.js" ></script>
   <form class="form-horizontal" method="post" action="addRecipe.php" name="addrecipeform" id="addrecipeform">
     <fieldset>
       <!-- Recipe Name -->
