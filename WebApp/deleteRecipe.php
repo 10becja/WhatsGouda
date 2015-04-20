@@ -1,9 +1,9 @@
 <?php include "./backEnd/base.php";?>
 <?php include "./navbar.php";?>
 <?php
-
-$query = 'SELECT * FROM Recipe';
-$result=mysql_query($query) or die("Query Failed : ".mysql_error());
+session_start();
+$username = $_SESSION['username'];
+$query = 'SELECT * FROM Recipe WHERE creatorUsername = $username';
 $i=0;
 while($rows=mysql_fetch_array($result))
 {
