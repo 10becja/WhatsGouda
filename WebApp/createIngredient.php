@@ -1,16 +1,26 @@
 <?php include "./backEnd/base.php";?>
 <?php include "./navbar.php";?>
 <?php 
-  if(!empty($_POST['ingredientName'])) {
+  if(!empty($_POST['ingredientName'])) 
+  {
     $name = mysql_real_escape_string($_POST['ingredientName']);
-    //echo "<h1> $username, $name, $body </h1>";
-    $query = 'INSERT INTO Ingredient (id, name) VALUES (0, "' . $name . '")';
-    $result = mysql_query($query);
-    if(!$result) {
-      echo "<h1>There was an error processing your submission. Please try again.</h1>";
+    $checkingr = mysql_query("SELECT * FROM Ingredient WHERE name = '".$name."'");
+
+    if(mysql_num_rows($checkingr) >= 1)
+    {
+      echo "<h1>Error</h1>";
+      echo "<p>Sorry, that ingredient already exists</p>";
     }
-    else {
-      echo "<h1>New Ingredient added!</h1>";
+    else
+    {
+      $query = 'INSERT INTO Ingredient (id, name) VALUES (0, "' . $name . '")';
+      $result = mysql_query($query);
+      if(!$result) {
+        echo "<h1>There was an error processing your submission. Please try again.</h1>";
+      }
+      else {
+        echo "<h1>New Ingredient added!</h1>";
+      }
     }
   }
   if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['username'])) {
