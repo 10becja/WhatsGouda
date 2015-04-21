@@ -108,3 +108,7 @@
         echo '<p>Please <a href="./login.php">log in</a> if you want to create a recipe.</p>';
     }
 ?>
+
+</div>
+  </body>
+</html>

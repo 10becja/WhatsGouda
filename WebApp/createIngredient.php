@@ -64,3 +64,7 @@
         echo '<p>Please <a href="./login.php">log in</a> if you want to create an Ingredient.</p>';
     }
 ?>
+
+</div>
+  </body>
+</html>

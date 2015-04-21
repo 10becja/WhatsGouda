@@ -7,16 +7,7 @@
       <input type="text" name="searchterm" class="form-control" id="searchInput" placeholder="Enter search term here">
       </div>
       <button type="submit" class="btn btn-default">Search</button>
+      <button class="btn btn-default" onclick="./dispAllRecipes.php">Browse All</button>
     </form>
-
-<form Method="POST" action="./dispAllRecipes.php">
-	<div class="form-group">
-		<p></p>
-		<label>Or just browse:</label>
-		<p></p>
-		<button type="submit" class="btn btn-default">Go</button>
-	</div>
-</form>
-
 </body>
 </html>
