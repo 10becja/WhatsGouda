@@ -85,7 +85,7 @@ function printReviewForm($recipeId) {
 	if($recipeRow = mysql_fetch_array($recipeResult)) {
 		printRecipe($recipeRow);
 		if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['username'])) { 
-			//printReviewForm($recipeId);
+			printReviewForm($recipeId);
 		}
 	}
 	else {
