@@ -16,6 +16,6 @@
 		else {
 			echo "<h1>Your review was successfully submitted!</h1>";
 		}
-		echo '<p>Click <a href="./viewRecipe.php?id=' . $recipeId . '">here</a> to go back to the recipe.</p>";
+		echo '<p>Click <a href="./viewRecipe.php?id=' . $recipeId . '">here</a> to go back to the recipe.</p>';
 	}
 ?>
