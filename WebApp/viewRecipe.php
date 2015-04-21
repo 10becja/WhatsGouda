@@ -30,9 +30,11 @@ function printReviewForm($recipeId) {
 	<h3>Write a Review:</h3>
 	<form class="form-horizontal" method="post" action="addReview.php" name="reviewForm" id="reviewForm">
     <fieldset>
+	<!-- Recipe ID -->
 <?php 
 	echo '<input type="hidden" name="recipeId" value="' . $recipeId . '"/>';
 ?>
+	  <!-- Difficulty -->
       <div class="form-group">
         <label class="col-lg-2 control-label">Difficulty</label>
         <div class="col-lg-10">
@@ -45,6 +47,7 @@ function printReviewForm($recipeId) {
 		  </select>
         </div>
       </div>
+	  <!-- Quality -->
       <div class="form-group">
         <label class="col-lg-2 control-label">Quality</label>
         <div class="col-lg-10">
@@ -57,6 +60,7 @@ function printReviewForm($recipeId) {
 		  </select>
         </div>
       </div>
+	  <!-- Review Body -->
       <div class="form-group">
         <label class="col-lg-2 control-label">Review</label>
         <div class="col-lg-10">
@@ -81,7 +85,7 @@ function printReviewForm($recipeId) {
 	if($recipeRow = mysql_fetch_array($recipeResult)) {
 		printRecipe($recipeRow);
 		if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['username'])) { 
-			printReviewForm($recipeId);
+			//printReviewForm($recipeId);
 		}
 	}
 	else {
