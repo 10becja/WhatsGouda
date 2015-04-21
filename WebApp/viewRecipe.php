@@ -27,7 +27,8 @@ function printIngredientNames($recipeId){
 
 function printReviewForm($recipeId) {
 ?>
-	<form class="form-horizontal" method="post" action="" name="reviewForm" id="reviewForm">
+	<h3>Write a Review:</h3>
+	<form class="form-horizontal" method="post" action="addReview.php" name="reviewForm" id="reviewForm">
     <fieldset>
 <?php 
 	echo '<input type="hidden" name="recipeId" value="' . $recipeId . '"/>';
@@ -41,6 +42,7 @@ function printReviewForm($recipeId) {
           	<option>3</option>
           	<option>2</option>
           	<option>1</option>
+		  </select>
         </div>
       </div>
       <div class="form-group">
@@ -52,6 +54,7 @@ function printReviewForm($recipeId) {
           	<option>3</option>
           	<option>2</option>
           	<option>1</option>
+		  </select>
         </div>
       </div>
       <!-- Instructions -->
@@ -78,7 +81,9 @@ function printReviewForm($recipeId) {
 	$recipeResult = mysql_query($recipeQuery);
 	if($recipeRow = mysql_fetch_array($recipeResult)) {
 		printRecipe($recipeRow);
-		printReviewForm($recipeId);
+		if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['username'])) { 
+			printReviewForm($recipeId);
+		}
 	}
 	else {
 		echo "<h1>Recipe not found</h1>";
