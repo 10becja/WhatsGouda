@@ -8,7 +8,7 @@
 		foreach ($ingredients as &$ingredient) {
 			$ingredientId = intval($ingredient);
 			$query = 'INSERT INTO Has VALUES ("' . $username . '", ' . $ingredientId . ')';
-			echo $query;
+			//echo $query;
 			mysql_query($query);
 		}
 	} 
