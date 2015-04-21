@@ -14,6 +14,8 @@
 		echo "<tr><td>" . $row['avgQuality'] . "</td><td>" . $row['avgDifficulty'] . "</td><td>" . $row['reviewCount'] . "</td><td><a href='viewRecipe.php?id=" . $row['id'] . "'>" . $row['name'] . "</a></td><td>" . $row['creatorUsername'] . "</td></tr>";
 		$row = mysql_fetch_array($result);
 	}
+	
+	<input type="button" value="What Can I make" onclick="location='recommend.php'" />
 
 ?>
 

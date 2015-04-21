@@ -19,6 +19,7 @@ function searchRecipe($qry){
 }
 
 searchRecipe(mysql_real_escape_string($_POST["searchterm"]));
+<input type="button" value="What Can I make" onclick="location='recommend.php'" />
 
 
 
