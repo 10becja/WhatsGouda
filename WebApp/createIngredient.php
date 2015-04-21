@@ -1,3 +1,5 @@
+<!-- Used to add a new ingredient to the database -->
+
 <?php include "./backEnd/base.php";?>
 <?php include "./navbar.php";?>
 <?php 
@@ -25,6 +27,17 @@
   }
   if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['username'])) {
 ?>
+<div class="row">
+          <div class="col-lg-12">
+            <div class="page-header">
+              <h1 id="forms">Create a new Ingredient!</h1>
+            </div>
+          </div>
+        </div>
+        <div class="row"> 
+          <div class="col-lg-6"> 
+            <div class="well"> 
+              <p>Can't find an ingredient in our database? You can create a new one here!</p>
   <form class="form-horizontal" method="post" action="createIngredient.php" name="createIngredientform" id="createIngredientform">
     <fieldset>
       <!-- Recipe Name -->
@@ -42,6 +55,9 @@
       </div>
     </fieldset>
   </form>
+  </div> 
+  </div>
+  </div>
 <?php
   }
     else {

@@ -27,39 +27,48 @@ function printIngredientNames($recipeId){
 
 function printReviewForm($recipeId) {
 ?>
-	<h3>Write a Review:</h3>
-	<form class="form-horizontal" method="post" action="addReview.php" name="reviewForm" id="reviewForm">
-    <fieldset>
-	<!-- Recipe ID -->
+    <div class="row">
+   	  <div class="col-lg-12">
+        <div class="page-header">
+		  <h3>Write a Review:</h3>
+		</div>
+      </div>
+    </div>
+    <div class="row"> 
+      <div class="col-lg-6"> 
+        <div class="well"> 
+	      <form class="form-horizontal" method="post" action="addReview.php" name="reviewForm" id="reviewForm">
+    	    <fieldset>
+			<!-- Recipe ID -->
 <?php 
-	echo '<input type="hidden" name="recipeId" value="' . $recipeId . '"/>';
+			echo '<input type="hidden" name="recipeId" value="' . $recipeId . '"/>';
 ?>
-	  <!-- Difficulty -->
-      <div class="form-group">
-        <label class="col-lg-2 control-label">Difficulty</label>
-        <div class="col-lg-10">
-          <select class="form-control" name="difficulty" id="difficulty">
-          	<option>5</option>
-          	<option>4</option>
-          	<option>3</option>
-          	<option>2</option>
-          	<option>1</option>
-		  </select>
-        </div>
-      </div>
-	  <!-- Quality -->
-      <div class="form-group">
-        <label class="col-lg-2 control-label">Quality</label>
-        <div class="col-lg-10">
-          <select class="form-control" name="quality" id="quality">
-          	<option>5</option>
-          	<option>4</option>
-          	<option>3</option>
-          	<option>2</option>
-          	<option>1</option>
-		  </select>
-        </div>
-      </div>
+	  		<!-- Difficulty -->
+		    <div class="form-group">
+		      <label class="col-lg-2 control-label">Difficulty</label>
+		    	  <div class="col-lg-10">
+			          <select class="form-control" name="difficulty" id="difficulty">
+			          	<option>5</option>
+			          	<option>4</option>
+			          	<option>3</option>
+			          	<option>2</option>
+			          	<option>1</option>
+					  </select>
+		        </div>
+		    </div>
+			<!-- Quality -->
+		    <div class="form-group">
+		      <label class="col-lg-2 control-label">Quality</label>
+		        <div class="col-lg-10">
+		          <select class="form-control" name="quality" id="quality">
+		          	<option>5</option>
+		          	<option>4</option>
+		          	<option>3</option>
+		          	<option>2</option>
+		          	<option>1</option>
+				  </select>
+		        </div>
+		    </div>
 	  <!-- Review Body -->
       <div class="form-group">
         <label class="col-lg-2 control-label">Review</label>
@@ -76,6 +85,11 @@ function printReviewForm($recipeId) {
       </div>
     </fieldset>
   </form>
+  </div> 
+  </div>
+  </div>
+
+
 <?php	
 }
 

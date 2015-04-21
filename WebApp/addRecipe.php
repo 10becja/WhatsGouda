@@ -25,6 +25,17 @@
 	}
 	if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['username'])) {
 ?>
+<div class="row">
+          <div class="col-lg-12">
+            <div class="page-header">
+              <h1 id="forms">Create a new Recipe!</h1>
+            </div>
+          </div>
+        </div>
+        <div class="row"> 
+          <div class="col-lg-6"> 
+            <div class="well"> 
+              <p>Share your wonderful food with the world!</p>
   <script src="./js/selectize.min.js" ></script>
   <form class="form-horizontal" method="post" action="addRecipe.php" name="addrecipeform" id="addrecipeform">
     <fieldset>
@@ -59,6 +70,9 @@
       </div>
     </fieldset>
   </form>
+  </div> 
+          </div>
+        </div>
   <script>
   	<?php
   		$query = "SELECT * FROM Ingredient";

@@ -1,3 +1,6 @@
+<!-- Used to add an ingredient to a user-->
+
+
 <?php include "./backEnd/base.php";?>
 <?php include "./navbar.php";?>
 <?php
@@ -13,6 +16,17 @@
 		}
 	} 
 ?>
+<div class="row">
+          <div class="col-lg-12">
+            <div class="page-header">
+              <h1 id="forms">Add an Ingredient!</h1>
+            </div>
+          </div>
+        </div>
+        <div class="row"> 
+          <div class="col-lg-6"> 
+            <div class="well"> 
+              <p>Add ingredients to your list here.</p>
 <script src="./js/selectize.min.js" ></script>
  <form class="form-horizontal" method="post" action="addIngredient.php" name="addingredientform" id="addigredientform">
     <fieldset>
@@ -32,6 +46,9 @@
       </div>
     </fieldset>
   </form>
+  </div> 
+  </div>
+  </div>
   <script>
   	<?php
   		$query = "SELECT * FROM Ingredient";
