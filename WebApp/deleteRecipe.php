@@ -28,7 +28,7 @@ echo $name[$j];
 <input name="submit" type="submit" value="Delete"/><br />
 
 </form>
-<p align=right><a href="view.php">VIEW RECORDS</a></p>
+<p align=right><a href="searchResult.php">VIEW RECORDS</a></p>
 <p align=right><a href="index.php">HOME</a></p>
 <?php
 
