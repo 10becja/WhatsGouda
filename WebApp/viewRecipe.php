@@ -27,6 +27,7 @@ function printIngredientNames($recipeId){
 
 function printReviewForm($recipeId) {
 ?>
+	<h3>Write a Review:</h3>
 	<form class="form-horizontal" method="post" action="" name="reviewForm" id="reviewForm">
     <fieldset>
 <?php 
@@ -41,6 +42,7 @@ function printReviewForm($recipeId) {
           	<option>3</option>
           	<option>2</option>
           	<option>1</option>
+		  </select>
         </div>
       </div>
       <div class="form-group">
@@ -52,6 +54,7 @@ function printReviewForm($recipeId) {
           	<option>3</option>
           	<option>2</option>
           	<option>1</option>
+		  </select>
         </div>
       </div>
       <!-- Instructions -->
