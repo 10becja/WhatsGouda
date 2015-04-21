@@ -3,6 +3,7 @@
 <h1>Welcome to What's Gouda!</h1>
 <h3>Let's find out what's gooda:</h3>
 <?php
+
 	$query = 'SELECT * FROM Recipe ORDER BY avgQuality DESC';
 	$result = mysql_query($query);
 	$num = 0;

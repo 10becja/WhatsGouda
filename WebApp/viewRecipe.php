@@ -80,7 +80,9 @@ function printReviewForm($recipeId) {
 	$recipeResult = mysql_query($recipeQuery);
 	if($recipeRow = mysql_fetch_array($recipeResult)) {
 		printRecipe($recipeRow);
-		printReviewForm($recipeId);
+		if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['username'])) { 
+			printReviewForm($recipeId);
+		}
 	}
 	else {
 		echo "<h1>Recipe not found</h1>";
