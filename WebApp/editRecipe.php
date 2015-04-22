@@ -3,7 +3,32 @@
 <?php
 	if(!empty($_POST['ingredients'])) {
 		$recipeID = $_POST['recipeID'];
+    $name = mysql_real_escape_string($_POST['name']);
+    $trimmedInstructions = trim($_POST['instructions']);
+    $body = mysql_real_escape_string($trimmedInstructions);
+    $query = 'UPDATE Recipe SET 
+                name="' . $name . '",
+                body="' . $body . '"
+                WHERE id=' . $recipeID;
+    echo $query;
+    /**
+    $result = mysql_query($query);
+
+    $deleteQuery = 'DELETE FROM Requires WHERE recipeID=' . $recipeID;
+    $result = mysql_query($deleteQuery);
+    
+    $ingredients = explode(";", $_POST['ingredients']);
+      foreach ($ingredients as &$ingredient) {
+        $ingredientId = intval($ingredient);
+        $query = "INSERT INTO Requires VALUES ($recipeId , $ingredientId)";
+        mysql_query($query);
+      }
+
+    **/
+    
+
 	}
+  else {
 ?>
 <?php
 	$recipeID = $_GET['id'];
@@ -120,5 +145,6 @@
 
   </script>
 <?php
-	} //end else
+	} //end able to edit else
+} //end POST else
 ?>
