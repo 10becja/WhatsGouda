@@ -5,22 +5,41 @@
 	$query = 'SELECT * FROM Recipe WHERE creatorUsername = "'. $username . '"';
 	$result = mysql_query($query);
 ?>
-<form class="form-horizontal" method="post" action="./deleteRecipe.php">
-	<label class="control-label">Select the Name to Delete:</label>
-	<select class="form-control" name="sel">
-		<option value='-1'>No Selection</option>
+<div class="row">
+	<div class="col-lg-12">
+		<div class="page-header">
+			<h1 id="forms">Delete Recipe</h1>
+		</div>
+	</div>
+</div>
+<div class="row"> 
+	<div class="col-lg-6"> 
+		<div class="well">
+			<form class="form-horizontal" method="post" action="./deleteRecipe.php">
+			<fieldset>
+				<!-- Select Recipe -->
+				<div class="form-group">
+					<label class="control-label">Select the Name to Delete:</label>
+					<select class="form-control" name="sel">
+						<option value='-1'>No Selection</option>
+
 <?php
-	while($row = mysql_fetch_array($result)) {
-		echo "<option value='" . $row['id'] . "'>" . $row['name'] . "</option>";
-	}
+						while($row = mysql_fetch_array($result)) 
+						{
+							echo "<option value='" . $row['id'] . "'>" . $row['name'] . "</option>";
+						}
 ?>
-	</select><br />
-
-	<input class="btn btn-primary" name="submit" type="submit" value="Delete"/><br />
-
-</form>
-<p align=right><a href="searchResult.php">VIEW RECORDS</a></p>
-<p align=right><a href="index.php">HOME</a></p>
+					</select>
+				</div>
+				<!-- Button -->
+				<div class="form-group">
+					<input class="btn btn-primary" name="submit" type="submit" value="Delete"/>
+				</div>
+			</fieldset>
+			</form>
+		</div> 
+	</div>
+</div>
 <?php
 
 if(isset($_POST['submit']))
