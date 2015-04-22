@@ -1,6 +1,7 @@
 
+<?php include "./backEnd/base.php";?>
+<?php include "./navbar.php";?>
 <?php
-    include 'db.php';
 	$sql = 'SELECT creatorUsername, Avg(avgQuality) AS avgQuality
 			FROM Recipe
 			GROUP BY creatorUsername
