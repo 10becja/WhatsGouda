@@ -5,6 +5,7 @@
 	$sql = "SELECT hashas.username, Recipe.name AS RecommendRecipe
 			FROM hashas, Recipe, reqreq
 			WHERE reqreq.recipeID = Recipe.id 
+						AND hashas.username = '%$username%'
 						AND FIND_IN_SET(reqreq.ingredientid, hashas.ingredientid) > 0;";
 	
 	//echo $sql;
