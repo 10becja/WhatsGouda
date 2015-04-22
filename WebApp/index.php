@@ -16,7 +16,6 @@
 	}
 ?>
 	
-	<input type="button" value="What Can I make" onclick="location='recommend.php'" />
 
 
 

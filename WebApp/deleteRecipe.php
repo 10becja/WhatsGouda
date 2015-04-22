@@ -3,8 +3,7 @@
 <?php
 session_start();
 $username = $_SESSION['username'];
-echo $username;
-$query = "SELECT * FROM Recipe WHERE creatorUsername = '$username'";
+$query = "SELECT * FROM Recipe WHERE creatorUsername = '%$username%'";
 $i=0;
 while($rows=mysql_fetch_array($result))
 {
