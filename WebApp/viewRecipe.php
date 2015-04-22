@@ -90,30 +90,35 @@ function printReviewForm($recipeId) {
   </div>
 
 <?php
+}
+
 function printReviews($recipeId) {
 	$query = 'SELECT * FROM Review WHERE recipeId=' . $recipeId;
 	$result = mysql_query($query);
+	echo "<div>";
 	echo "<h3>Reviews:</h3>";
 	while($row = mysql_fetch_array($result)) {
-		echo "<label>" . $row['writerUsername'] . "</label> <p>- " . $row['body'] . "</p>";
-		echo "<dl>";
-		echo "<dd>Difficulty</dd>";
-		echo "<dt>" . $row['difficulty'] . "</dt>";
-		echo "<dd>Quality</dd>";
-		echo "<dt>" . $row['quality'] . "</dt>";
+		echo "<dl class='dl-horizontal'>";
+		echo "<dt>User</dt>";
+		echo "<dd>" . $row['writerUsername'] . "</dd>";
+		echo "<dt>Review</dt>";
+		echo "<dd>" . $row['body'] . "</dd>";
+		echo "<dt>Difficulty</dt>";
+		echo "<dd>" . $row['difficulty'] . "</dd>";
+		echo "<dt>Quality</dt>";
+		echo "<dd>" . $row['quality'] . "</dd>";
+		echo "</dl>";
 	}
+	echo "</div>";
 }
-?>
 
-
-<?php	
-}
 
 	$recipeId = $_GET["id"];
 	$recipeQuery = "SELECT * FROM Recipe WHERE id=$recipeId";
 	$recipeResult = mysql_query($recipeQuery);
 	if($recipeRow = mysql_fetch_array($recipeResult)) {
 		printRecipe($recipeRow);
+		printReviews($recipeId);
 		if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['username'])) { 
 			printReviewForm($recipeId);
 		}

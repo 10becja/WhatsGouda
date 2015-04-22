@@ -1,27 +1,17 @@
 <?php include "./backEnd/base.php";?>
 <?php include "./navbar.php";?>
 <?php
-session_start();
-$username = $_SESSION['username'];
-$query = "SELECT * FROM Recipe WHERE creatorUsername = '%$username%'";
-$i=0;
-while($rows=mysql_fetch_array($result))
-{
-$name[$i]=$rows['name'];
-$i++;
-}
-$total_elmt=count($name);
+	$username = $_SESSION['username'];
+	$query = 'SELECT * FROM Recipe WHERE creatorUsername = "'. $username . '"';
+	$result = $mysql_query($query);
 ?>
-<form method="POST" action="">
+<form method="post" action="./deleteRecipe.php">
 Select the Name to Delete: <select name="sel">
 <option>Select</option>
-<?php 
-for($j=0;$j<$total_elmt;$j++)
-{
-?><option><?php 
-echo $name[$j];
-?></option><?php
-}
+<?php
+	while($row = mysql_fetch_array($result)) {
+		echo "<option>" . $row . "</option>";
+	}
 ?>
 </select><br />
 
