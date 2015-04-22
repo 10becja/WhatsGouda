@@ -3,7 +3,7 @@
 <?php
 
 
-	$username = $_GET["username"];
+	$username = $_GET["creatorUsername"];
 	$recipeQuery = 'SELECT * FROM Recipe WHERE creatorUsername= "' . $username. '";';
 	$recipeResult = mysql_query($recipeQuery);
 	while($row = mysql_fetch_array($result)){
