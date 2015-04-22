@@ -29,14 +29,14 @@
 		$row = mysql_fetch_array($result);
 	}
 
-	$query = 'SELECT Ingredient.name as name FROM Has, Ingredient WHERE Has.username="' . $username . '" AND Ingredient.id=Has.ingredientID';
+	$query = 'SELECT Ingredient.name AS ingredientName, Ingredient.id as ingredientID FROM Has, Ingredient WHERE Has.username="' . $username . '" AND Ingredient.id=Has.ingredientID';
 	$result = msyql_query($query);
 ?>
 	<h1>Your Ingredients:</h1>
 	<ul>
 <?php
 	while($row = mysql_fetch_array($result)) {
-		echo "<li>" . $row['name'] . "</li>";
+		echo "<li>" . $row['ingredientName'] . "</li>";
 	}
 	echo "</ul>";
 
