@@ -11,8 +11,7 @@ function searchRecipe($qry){
 	
 	echo "<tr><th>" . "avgQuality" . "</th><th>" . "avgDifficulty" . "</th><th>" . "reviewCount" . "</th><th>" . "name" . "</th><th>" . "creatorUsername" . "</th></tr>";
 	while($row = mysql_fetch_array($result)){
-		echo "<tr><td>" . $row['avgQuality'] . "</td><td>" . $row['avgDifficulty'] . "</td><td>" . $row['reviewCount'] . "</td><td><a href='viewRecipe.php?id=" . $row['id'] . "'>" . $row['name'] . "</a></td><td>" . $row['creatorUsername'] . "</td></tr>";
-			
+		echo "<tr><td>" . number_format((float)$row['avgQuality'], 2, '.', '') . "</td><td>" . number_format((float)$row['avgDifficulty'], 2, '.', '') . "</td><td>" . $row['reviewCount'] . "</td><td><a href='viewRecipe.php?id=" . $row['id'] . "'>" . $row['name'] . "</a></td><td>" . $row['creatorUsername'] . "</td></tr>";
 	}        
 
 	
