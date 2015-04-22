@@ -89,6 +89,22 @@ function printReviewForm($recipeId) {
   </div>
   </div>
 
+<?php
+function printReviews($recipeId) {
+	$query = 'SELECT * FROM Review WHERE recipeId=' . $recipeId;
+	$result = mysql_query($query);
+	echo "<h3>Reviews:</h3>";
+	while($row = mysql_fetch_array($result)) {
+		echo "<label>" . $row['writerUsername'] . "</label> <p>- " . $row['body'] . "</p>";
+		echo "<dl>";
+		echo "<dd>Difficulty</dd>";
+		echo "<dt>" . $row['difficulty'] . "</dt>";
+		echo "<dd>Quality</dd>";
+		echo "<dt>" . $row['quality'] . "</dt>";
+	}
+}
+?>
+
 
 <?php	
 }
