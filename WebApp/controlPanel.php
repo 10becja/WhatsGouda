@@ -32,7 +32,7 @@
 	echo "</table>";
 	echo "</div>";
 
-	$query = 'SELECT Ingredient.name AS ingredientName FROM Has, Ingredient WHERE Has.username="' . $username . '" AND Ingredient.id=Has.ingredientID';
+	$query = 'SELECT Ingredient.name AS ingredientName, Ingredient.id as ingredientID FROM Has, Ingredient WHERE Has.username="' . $username . '" AND Ingredient.id=Has.ingredientID';
 	$result = mysql_query($query);
 	echo "<div>";
 	echo "<h1>Your Ingredients:</h1>";
