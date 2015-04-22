@@ -2,7 +2,7 @@
 <?php include "./navbar.php";?>
 <?php
 	$username = $_SESSION['username'];
-	$sql = "SELECT hashas.username, Recipe.name AS RecommendRecipe
+	$sql = "SELECT Recipe.name AS RecommendRecipe
 			FROM hashas, Recipe, reqreq
 			WHERE reqreq.recipeID = Recipe.id 
 						AND hashas.username = '%$username%'
