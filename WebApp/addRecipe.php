@@ -4,7 +4,8 @@
 	if(!empty($_POST['ingredients'])) {
 		$username = $_SESSION['username'];
 		$name = mysql_real_escape_string($_POST['name']);
-		$body = mysql_real_escape_string($_POST['instructions']);
+		$trimmedInstructions = trim($_POST['instructions']);
+		$body = mysql_real_escape_string($trimmedInstructions);
 		//echo "<h1> $username, $name, $body </h1>";
 		$query = 'INSERT INTO Recipe (avgQuality, avgDifficulty, reviewCount, name, creatorUsername, body) VALUES (0,0,0, "' . $name . '", "' . $username. '", "' . $body . '")';
 		$result = mysql_query($query);
@@ -58,8 +59,7 @@
       <div class="form-group">
         <label class="col-lg-2 control-label">Instructions</label>
         <div class="col-lg-10">
-          <textarea class="form-control" name="instructions" id="instructions" rows="3" placeholder="Type instructions here">
-          </textarea>
+          <textarea class="form-control" name="instructions" id="instructions" rows="3"></textarea>
         </div>
       </div>
       <!-- BUTTON -->

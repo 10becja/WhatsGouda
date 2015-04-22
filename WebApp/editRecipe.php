@@ -1,16 +1,27 @@
 <?php include "./backEnd/base.php";?>
 <?php include "./navbar.php";?>
 <?php
+	if(!empty($_POST['ingredients'])) {
+		$recipeID = $_POST['recipeID'];
+	}
+?>
+<?php
 	$recipeID = $_GET['id'];
 	$recipeQuery = "SELECT * FROM Recipe WHERE id=" . $recipeID;
 	$result = mysql_query($recipeQuery);
 	$recipe = mysql_fetch_array($result);
+	$currentUser = $_SESSION['username'];
+	$recipeCreator = $recipe['creatorUsername'];
+	if($currentUser != $recipeCreator) {
+		echo "<h1>You can't edit another person's recipe!</h1>";
+	}
+	else {
 	
-	$ingredientsQuery = "SELECT ingredientid FROM reqreq WHERE id=" . $recipeID;
+	$ingredientsQuery = "SELECT ingredientid FROM reqreq WHERE recipeID=" . $recipeID;
 	$ingredientsResult = mysql_query($ingredientsQuery);
 	$ingredients = mysql_fetch_array($ingredientsResult);
 
-	$initialIngredients = str_replace(',', ';', $ingredients);
+	$initialIngredients = str_replace(',', ';', $ingredients['ingredientid']);
 	$initialName = $recipe['name'];
 	$initialBody = $recipe['body'];
 
@@ -18,7 +29,7 @@
 <div class="row">
           <div class="col-lg-12">
             <div class="page-header">
-              <h1 id="forms">Create a new Recipe!</h1>
+              <h1 id="forms">Edit Your Recipe!</h1>
             </div>
           </div>
         </div>
@@ -29,6 +40,7 @@
   <script src="./js/selectize.min.js" ></script>
   <form class="form-horizontal" method="post" action="editRecipe.php" name="editRecipeform" id="editRecipeform">
     <fieldset>
+	  <?php echo '<input type="hidden" value="' . $recipeID . '" name="recipeID" />';?>
       <!-- Recipe Name -->
       <div class="form-group">
         <label class="col-lg-2 control-label">Recipe Name</label>
@@ -56,11 +68,10 @@
       <div class="form-group">
         <label class="col-lg-2 control-label">Instructions</label>
         <div class="col-lg-10">
-          <textarea class="form-control" name="instructions" id="instructions" rows="3">
+          <textarea class="form-control" name="instructions" id="instructions" rows="3"
 			<?php
-				echo $initialBody;
+				echo '>' . $initialBody . '</textarea>';
 			?>
-          </textarea>
         </div>
       </div>
       <!-- BUTTON -->
@@ -102,4 +113,12 @@
   		*/
   		create: false
   	});
+	<?php
+	//echo "$('#ingredients').val('" . $initialIngredients . "');";
+	//echo "console.log('". $initialIngredients . "');";
+	?>
+
   </script>
+<?php
+	} //end else
+?>
