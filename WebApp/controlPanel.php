@@ -9,6 +9,7 @@
 ?>
 	<div>
 	<h1>Your Recipes:</h1>
+	<!-- TODO: Add links to addRecipe and deleteRecipe here -->
 	<table class="table table-striped table-hover table-bordered">
 	<tr>
 		<th>Quality</th>
@@ -34,6 +35,7 @@
 
 	$query = 'SELECT Ingredient.name AS ingredientName, Ingredient.id as ingredientID FROM Has, Ingredient WHERE Has.username="' . $username . '" AND Ingredient.id=Has.ingredientID';
 	$result = mysql_query($query);
+	//TODO: Add links to addIngredient and deleteIngredient here
 	echo "<div>";
 	echo "<h1>Your Ingredients:</h1>";
 	echo "<ul>";
@@ -47,7 +49,7 @@
 ?>
 
 
-<input type="button" value="What Can I make" onclick="location='recommend.php'" />
+<input class="btn btn-primary" type="button" value="What Can I Make?" onclick="location='recommend.php'" />
 
 	</div>
   </body>
