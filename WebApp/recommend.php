@@ -13,7 +13,8 @@ function meetsRequirements($requirements, $hasIngredients) {
 			}
 		}
 		if(!$fulfilled) {
-			return FALSE; //If we weren't able to find the required ingredient, then this recipe cannot be made
+			return FALSE; //If any of the ingredients cannot be fulfilled, then the recipe cannot be made
+						  //or recommended to the user
 		}
 	}
 	return TRUE; //The only way to get here is to find all of the requirements
@@ -22,8 +23,7 @@ function meetsRequirements($requirements, $hasIngredients) {
 	$sql = 'SELECT Recipe.name AS RecommendRecipe, Recipe.id as recipeID, reqreq.ingredientid as requirements, hashas.ingredientid as hasIngredients
 			FROM hashas, Recipe, reqreq
 			WHERE reqreq.recipeID = Recipe.id 
-						AND hashas.username = "' . $username. '"
-						AND FIND_IN_SET(reqreq.ingredientid, hashas.ingredientid) > 0;';
+						AND hashas.username = "' . $username. '";';
 	
 	//echo $sql;
 	$result = mysql_query($sql);
@@ -32,7 +32,7 @@ function meetsRequirements($requirements, $hasIngredients) {
 	
 	echo "<tr><th>" ."Recipe Name". "</th></tr>";
 	while($row = mysql_fetch_array($result)){
-		if meetsRequirements($row['requirements'], $row['hasIngredients']) {
+		if(meetsRequirements($row['requirements'], $row['hasIngredients'])) {
 			echo "<tr><td><a href='./viewRecipe.php?id=" . $row['recipeID'] . "'>" . $row['RecommendRecipe'] . "</a></td></tr>";
 		}
 	}        
