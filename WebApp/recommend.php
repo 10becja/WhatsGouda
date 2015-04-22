@@ -1,8 +1,25 @@
 <?php include "./backEnd/base.php";?>
 <?php include "./navbar.php";?>
 <?php
+function meetsRequirements($requirements, $hasIngredients) {
+	$requirementsList = explode(',', $requirements);
+	$hasList = explode(',', $hasIngredients);
+	foreach($requirementsList as &$requirement) {
+		$fulfilled = FALSE;
+		foreach($hasList as &$hasIngredient) {
+			if($requirement==$hasIngredient) {
+				$fulfilled = TRUE; //We found that the user has the ingredient. Yay!
+				break; //So let's break to save computation time
+			}
+		}
+		if(!$fulfilled) {
+			return FALSE; //If we weren't able to find the required ingredient, then this recipe cannot be made
+		}
+	}
+	return TRUE; //The only way to get here is to find all of the requirements
+}
 	$username = $_SESSION['username'];
-	$sql = 'SELECT Recipe.name AS RecommendRecipe, Recipe.id as recipeID
+	$sql = 'SELECT Recipe.name AS RecommendRecipe, Recipe.id as recipeID, reqreq.ingredientid as requirements, hashas.ingredientid as hasIngredients
 			FROM hashas, Recipe, reqreq
 			WHERE reqreq.recipeID = Recipe.id 
 						AND hashas.username = "' . $username. '"
@@ -15,7 +32,9 @@
 	
 	echo "<tr><th>" ."Recipe Name". "</th></tr>";
 	while($row = mysql_fetch_array($result)){
-		echo "<tr><td><a href='./viewRecipe.php?id=" . $row['recipeID'] . "'>" . $row['RecommendRecipe'] . "</a></td></tr>";
+		if meetsRequirements($row['requirements'], $row['hasIngredients']) {
+			echo "<tr><td><a href='./viewRecipe.php?id=" . $row['recipeID'] . "'>" . $row['RecommendRecipe'] . "</a></td></tr>";
+		}
 	}        
  
 
