@@ -24,8 +24,8 @@
 	{
 		echo "
 		<tr>
-			<td>" . $row['avgQuality'] . "</td>
-			<td>" . $row['avgDifficulty'] . "</td>
+			<td>" . number_format((float)$row['avgQuality'], 2, '.', '') . "</td>
+			<td>" . number_format((float)$row['avgDifficulty'], 2, '.', '') . "</td>
 			<td>" . $row['reviewCount'] . "</td>
 			<td><a href='viewRecipe.php?id=" . $row['id'] . "'>" . $row['name'] . "</a></td>
 		</tr>";
