@@ -44,8 +44,6 @@
                       <li><a href="./addIngredient.php">Add Ingredient</a></li>
                       <li class="divider"></li>
                       <li><a href="./controlPanel.php">Control Panel</a></li>
-                      <li class="divider"></li>
-                      <li><a href="#">One more separated link</a></li>
                     </ul>
                   </li>
 <?php

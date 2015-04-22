@@ -30,7 +30,7 @@
              
             echo "<h1>Success</h1>";
             echo "<p>We are now redirecting you to the member area.</p>";
-            echo '<meta http-equiv="refresh" content="2;/">';
+            echo '<meta http-equiv="refresh" content="2;URL=./controlPanel.php">';
         }
         else
         {
