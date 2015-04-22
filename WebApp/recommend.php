@@ -2,13 +2,10 @@
 <?php include "./navbar.php";?>
 <?php
 	$username = $_SESSION['username'];
-	$sql = "SELECT User.username, Recipe.id AS recipeID, Recipe.name AS RecommendRecipe
-			FROM Recipe, Ingredient, Requires, Has, User
-			WHERE Recipe.id = Requires.recipeID 
-						AND Requires.ingredientID = Ingredient.id 
-						AND Has.username = User.username 
-						AND User.username = '$username'
-						AND Has.ingredientID = Ingredient.id;";
+	$sql = "SELECT hashas.username, Recipe.name AS RecommendRecipe
+			FROM hashas, Recipe, reqreq
+			WHERE reqreq.recipeID = Recipe.id 
+						AND FIND_IN_SET(reqreq.ingredientid, hashas.ingredientid) > 0;";
 	
 	//echo $sql;
 	$result = mysql_query($sql);
