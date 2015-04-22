@@ -52,6 +52,7 @@
 
 
 <input class="btn btn-primary" type="button" value="What Can I Make?" onclick="location='recommend.php'" />
+<input class="btn btn-primary" type="button" value="Looking for other Users?" onclick="location='searchUsers.php'" />
 
 	</div>
   </body>
