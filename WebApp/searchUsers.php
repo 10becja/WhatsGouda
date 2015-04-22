@@ -1,7 +1,6 @@
-<?php include "./backEnd/base.php";?>
-<?php include "./navbar.php";?>
-<?php
 
+<?php
+    include 'db.php';
 	$sql = 'SELECT creatorUsername, Avg(avgQuality) AS avgQuality
 			FROM Recipe
 			GROUP BY creatorUsername
@@ -14,7 +13,7 @@
 	
 	echo "<tr><th>" . "creatorUsername" . "</th><th>" . "avgQuality" . "</th></tr>";
 	while($row = mysql_fetch_array($result)){
-		echo "<tr><td>" . $row['creatorUsername'] . "</th><th>" . $row['avgQuality'] . "</td></tr>";
+		echo "<tr><td><a href='viewUseRecipe.php?creatorUsername=" . $row['creatorUsername'] . "'>". $row['creatorUsername'] . "</th><th>" . $row['avgQuality'] . "</td></tr>";
 			
 	}        
 
