@@ -14,7 +14,7 @@
 	
 	echo "<tr><th>" . "creatorUsername" . "</th><th>" . "avgQuality" . "</th></tr>";
 	while($row = mysql_fetch_array($result)){
-		echo "<tr><td><a href='viewUseRecipe.php?creatorUsername=" . $row['creatorUsername'] . "'>". $row['creatorUsername'] . "</th><th>" . $row['avgQuality'] . "</td></tr>";
+		echo "<tr><td><a href='viewUseRecipe.php?creatorUsername=" . $row['creatorUsername'] . "'>". $row['creatorUsername'] . "</th><th>" . number_format((float)$row['avgQuality'], 2, '.', '') . "</td></tr>";
 			
 	}        
 
