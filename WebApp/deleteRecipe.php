@@ -3,19 +3,20 @@
 <?php
 	$username = $_SESSION['username'];
 	$query = 'SELECT * FROM Recipe WHERE creatorUsername = "'. $username . '"';
-	$result = $mysql_query($query);
+	$result = mysql_query($query);
 ?>
-<form method="post" action="./deleteRecipe.php">
-Select the Name to Delete: <select name="sel">
-<option>Select</option>
+<form class="form-horizontal" method="post" action="./deleteRecipe.php">
+	<label class="control-label">Select the Name to Delete:</label>
+	<select class="form-control" name="sel">
+		<option value='-1'>No Selection</option>
 <?php
 	while($row = mysql_fetch_array($result)) {
-		echo "<option>" . $row . "</option>";
+		echo "<option value='" . $row['id'] . "'>" . $row['name'] . "</option>";
 	}
 ?>
-</select><br />
+	</select><br />
 
-<input name="submit" type="submit" value="Delete"/><br />
+	<input class="btn btn-primary" name="submit" type="submit" value="Delete"/><br />
 
 </form>
 <p align=right><a href="searchResult.php">VIEW RECORDS</a></p>
@@ -24,12 +25,12 @@ Select the Name to Delete: <select name="sel">
 
 if(isset($_POST['submit']))
 {
-$name=$_POST['sel'];
-
-
-$query = "DELETE FROM Recipe WHERE name='$name'";
-$result=mysql_query($query) or die("Query Failed : ".mysql_error());
-echo "Successfully Deleted!";
+	$recipeId=$_POST['sel'];
+	if($recipeId != '-1') { 
+		$query = 'DELETE FROM Recipe WHERE id="'. $recipeId . '"';
+		$result=mysql_query($query) or die("Query Failed : ".mysql_error());
+		echo "Successfully Deleted!";
+	}
 }
 
 
