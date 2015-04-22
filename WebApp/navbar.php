@@ -55,6 +55,7 @@
             <?php
               if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['username']))
               {
+                  echo "<li><a href='./controlPanel.php'>Hi " . $_SESSION['username'] . "!</a></li>";
                   echo '<li><a href="./logout.php">Logout</a></li>';  
               }
               else
@@ -63,12 +64,6 @@
               }
             ?>
           </ul>
-
-          <form class="navbar-form navbar-right" role="search" action="searchResult.php" method="POST">
-            <div class="form-group">
-              <input type="text" name="searchterm" class="form-control" placeholder="Search Recipes">
-            </div>
-          </form>
         </div>
       </div>
     </nav>
