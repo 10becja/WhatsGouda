@@ -23,8 +23,8 @@
         mysql_query($query);
       }
 
-    
-
+      echo "<h1>Recipe Edited!</h1>";
+      echo '<meta http-equiv="refresh" content="1;URL=./controlPanel.php">';
 	}
   else {
 ?>
