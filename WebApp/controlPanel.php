@@ -41,7 +41,7 @@
 		echo "<li>" .      $row['ingredientName'] . "</li>";
 	}
 	echo "<p><br><p>";
-	echo "<p>Got new ingredients in the pantry or fridge? <a href='./addIngredient.php'>Add them!</a> Don't have an ingredients anymore? <a href='./deleteIngredient.php'>Remove them!</a></p>";
+	echo "<p>Got new ingredients in the pantry or fridge? <a href='./addIngredient.php'>Add them!</a> Don't have ingredients anymore? <a href='./deleteIngredient.php'>Remove them.</a></p>";
 	echo "<ul>";
 	echo "</ul>";
 	echo "<p><b><i>Your basket will be saved bewteen sessions.</b></i</p>";
