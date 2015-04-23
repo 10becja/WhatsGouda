@@ -36,13 +36,18 @@
 	$query = 'SELECT Ingredient.name AS ingredientName, Ingredient.id as ingredientID FROM Has, Ingredient WHERE Has.username="' . $username . '" AND Ingredient.id=Has.ingredientID';
 	$result = mysql_query($query);
 	echo "<div>";
-	echo "<h1>Your Ingredients:</h1>";
-	echo "<p>Got a new ingredient? <a href='./addIngredient.php'>Click here to add it!</a> Don't have an ingredient anymore? <a href='./deleteIngredient.php'>Click here to delete some!</a></p>";
+	echo "<h1>Your Ingredient Basket:</h1>";
 	echo "<ul>";
-	while($row = mysql_fetch_array($result)) {
+		while($row = mysql_fetch_array($result)) 
+		{
 		echo "<li>" . $row['ingredientName'] . "</li>";
 	}
 	echo "</ul>";
+
+	echo "</br>";
+	echo "<p>Got new ingredients in the pantry or fridge? <a href='./addIngredient.php'>Add them!</a> Don't have ingredients anymore? <a href='./deleteIngredient.php'>Remove them.</a></p>";
+
+	echo "<p><b><i>Your basket will be saved between sessions.</b></i></p>";
 	echo "</div>";
 
 

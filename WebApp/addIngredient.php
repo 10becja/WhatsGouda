@@ -27,7 +27,7 @@
         <div class="row"> 
           <div class="col-lg-6"> 
             <div class="well"> 
-              <p>Add ingredients to your list here.</p>
+              <p>Add groceries to your virtual basket. We'll recommend meals!</p>
 <script src="./js/selectize.min.js" ></script>
  <form class="form-horizontal" method="post" action="addIngredient.php" name="addingredientform" id="addigredientform">
     <fieldset>
