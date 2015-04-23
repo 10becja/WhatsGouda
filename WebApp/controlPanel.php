@@ -38,13 +38,15 @@
 	$result = mysql_query($query);
 	//TODO: Add links to addIngredient and deleteIngredient here
 	echo "<div>";
-	echo "<h1>Your Ingredients:</h1>";
-	echo "<p>Got a new ingredient? <a href='./addIngredient.php'>Click here to add it!</a> Don't have an ingredient anymore? <a href='./deleteIngredient.php'>Click here to delete some!</a></p>";
-	echo "<ul>";
-	while($row = mysql_fetch_array($result)) {
-		echo "<li>" . $row['ingredientName'] . "</li>";
+	echo "<h1>Your Ingredient Basket:</h1>";
+		while($row = mysql_fetch_array($result)) {
+		echo "<li>" .      $row['ingredientName'] . "</li>";
 	}
+	echo "<p><br><p>";
+	echo "<p>Got new ingredients in the pantry or fridge? <a href='./addIngredient.php'>Add them!</a> Don't have an ingredients anymore? <a href='./deleteIngredient.php'>Remove them!</a></p>";
+	echo "<ul>";
 	echo "</ul>";
+	echo "<p><b><i>Your basket will be saved bewteen sessions.</b></i</p>";
 	echo "</div>";
 
 

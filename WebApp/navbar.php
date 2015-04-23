@@ -41,7 +41,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">User quick links<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                       <li><a href="./addRecipe.php">Add Recipe</a></li>
-                      <li><a href="./addIngredient.php">Add Ingredient</a></li>
+                      <li><a href="./addIngredient.php">Add Ingredients to Basket</a></li>
                       <li class="divider"></li>
                       <li><a href="./controlPanel.php">Control Panel</a></li>
                     </ul>
