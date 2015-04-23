@@ -54,7 +54,7 @@ function mostlyMeetsRequirements($requirements, $hasIngredients) {
 	//echo $sql;
 	$result = mysql_query($sql);
 
-	echo "<big><big>You have all the ingredients for these recipes:</big></big>";
+	echo "<h4>You have all the ingredients for these recipes:</h4>";
 
 	echo '<table class="table table-striped table-hover table-bordered">';
 
@@ -100,7 +100,7 @@ function mostlyMeetsRequirements($requirements, $hasIngredients) {
 		 </tr>";
 
 
-		echo "<p><big><big>You might also try your luck at these, with a few substitutes:<big><big></p>";
+		echo "<h4>You might also try your luck at these, with a few substitutes:</h4>";
 		echo $partialMatches;
 	}
 

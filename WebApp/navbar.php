@@ -43,7 +43,7 @@
                       <li><a href="./addRecipe.php">Create A New Recipe</a></li>
                       <li><a href="./addIngredient.php">Add Ingredients to Basket</a></li>
                       <li class="divider"></li>
-                      <li><a href="./controlPanel.php">Your Profile</a></li>
+                      <li><a href="./controlPanel.php">Control Panel</a></li>
                     </ul>
                   </li>
 <?php
