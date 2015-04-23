@@ -49,6 +49,8 @@ if(isset($_POST['submit']))
 		$query = 'DELETE FROM Recipe WHERE id="'. $recipeId . '"';
 		$result=mysql_query($query) or die("Query Failed : ".mysql_error());
 		echo "Successfully Deleted!";
+		$deleteReviewsQuery = 'DELETE FROM Review WHERE recipeID=' . $recipeId;
+		$result = mysql_query($deleteReviewsQuery);
 	}
 }
 

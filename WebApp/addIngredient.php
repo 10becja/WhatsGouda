@@ -12,8 +12,9 @@
 			$ingredientId = intval($ingredient);
 			$query = 'INSERT INTO Has VALUES ("' . $username . '", ' . $ingredientId . ')';
 			//echo $query;
-			mysql_query($query);
+			$result = mysql_query($query);
 		}
+		echo "<h1>The ingredients have been successfully added to your basket!</h1>";
 	} 
 ?>
 <div class="row">

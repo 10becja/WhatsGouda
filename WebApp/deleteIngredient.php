@@ -14,6 +14,7 @@
 			//echo $query;
 			$result = mysql_query($query);
 		}
+		echo "<h1>The ingredients have been deleted from your basket!</h1>";
 	} 
 ?>
 <div class="row">
