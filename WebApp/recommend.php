@@ -20,7 +20,13 @@ function meetsRequirements($requirements, $hasIngredients) {
 	return TRUE; //The only way to get here is to find all of the requirements
 }
 	$username = $_SESSION['username'];
-	$sql = 'SELECT Recipe.name AS RecommendRecipe, Recipe.id as recipeID, reqreq.ingredientid as requirements, hashas.ingredientid as hasIngredients
+	$sql = 'SELECT Recipe.name AS RecommendRecipe, 
+					Recipe.id as recipeID,
+					Recipe.avgQuality AS quality,
+					Recipe.avgDifficulty AS difficulty,
+					Recipe.creatorUsername AS creator,
+					reqreq.ingredientid as requirements, 
+					hashas.ingredientid as hasIngredients
 			FROM hashas, Recipe, reqreq
 			WHERE reqreq.recipeID = Recipe.id 
 						AND hashas.username = "' . $username. '";';
@@ -30,10 +36,21 @@ function meetsRequirements($requirements, $hasIngredients) {
 	
 	echo '<table class="table table-striped table-hover table-bordered">';
 	
-	echo "<tr><th>" ."Recipe Name". "</th></tr>";
+	echo "<tr>
+			<th>Recipe Name</th>
+			<th>Quality</th>
+			<th>Difficulty</th>
+			<th>Creator</th>
+		 </tr>";
 	while($row = mysql_fetch_array($result)){
 		if(meetsRequirements($row['requirements'], $row['hasIngredients'])) {
-			echo "<tr><td><a href='./viewRecipe.php?id=" . $row['recipeID'] . "'>" . $row['RecommendRecipe'] . "</a></td></tr>";
+			echo "<tr>
+					<td><a href='./viewRecipe.php?id=" . $row['recipeID'] . "'>" . $row['RecommendRecipe'] . "</a></td>
+					<td>" . number_format((float)$row['quality'], 2, '.', '') . "</td>
+					<td>" . number_format((float)$row['difficulty'], 2, '.', '') . "</td>
+					<td>" . $row['creator'] . "</td>
+				 </tr>";
+
 		}
 	}        
  

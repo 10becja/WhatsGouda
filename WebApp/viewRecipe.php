@@ -6,8 +6,11 @@ function printRecipe($recipe) {
 	$body = $recipe['body'];
 	$name = $recipe['name'];
 	$creator = $recipe['creatorUsername'];
+	$quality = number_format((float)$recipe['avgQuality'], 2, '.', '');
+	$difficulty = number_format((float)$recipe['avgDifficulty'], 2, '.', '');
 	echo "<h1> $name </h1>";
-	echo "<h2> By $creator </h2>";
+	echo "<p>Quality: " . $quality . "</p><p>Difficulty: " . $difficulty . "</p>";
+	echo "<h3> By $creator </h3>";
 	echo "<h3> Ingredients Needed: </h3>";
 	echo "<ul>";
 	printIngredientNames($recipeId);

@@ -9,9 +9,26 @@ function searchRecipe($qry){
 	echo '<table class="table table-striped table-hover table-bordered">';
 	
 	
-	echo "<tr><th>" . "avgQuality" . "</th><th>" . "avgDifficulty" . "</th><th>" . "reviewCount" . "</th><th>" . "name" . "</th><th>" . "creatorUsername" . "</th></tr>";
+	echo "<tr>
+			<th>Name</th>
+			<th>Quality</th>
+			<th>Difficulty</th>
+			<th>Reviews</th>
+			<th>Creator</th></tr>";
 	while($row = mysql_fetch_array($result)){
-		echo "<tr><td>" . number_format((float)$row['avgQuality'], 2, '.', '') . "</td><td>" . number_format((float)$row['avgDifficulty'], 2, '.', '') . "</td><td>" . $row['reviewCount'] . "</td><td><a href='viewRecipe.php?id=" . $row['id'] . "'>" . $row['name'] . "</a></td><td>" . $row['creatorUsername'] . "</td></tr>";
+		echo "<tr><td><a href='viewRecipe.php?id=" . 
+				$row['id'] .
+				"'>" . 
+				$row['name'] . 
+				"</a></td><td>" . 
+				number_format((float)$row['avgQuality'], 2, '.', '') . 
+				"</td><td>" . 
+				number_format((float)$row['avgDifficulty'], 2, '.', '') . 
+				"</td><td>" . 
+				$row['reviewCount'] . 
+				"</td><td>" . 
+				$row['creatorUsername'] . 
+				"</td></tr>";
 	}        
 
 	

@@ -10,8 +10,7 @@
                 name="' . $name . '",
                 body="' . $body . '"
                 WHERE id=' . $recipeID;
-    echo $query;
-    /**
+    //echo $query;
     $result = mysql_query($query);
 
     $deleteQuery = 'DELETE FROM Requires WHERE recipeID=' . $recipeID;
@@ -20,11 +19,10 @@
     $ingredients = explode(";", $_POST['ingredients']);
       foreach ($ingredients as &$ingredient) {
         $ingredientId = intval($ingredient);
-        $query = "INSERT INTO Requires VALUES ($recipeId , $ingredientId)";
+        $query = "INSERT INTO Requires VALUES (" . $recipeID . "," . $ingredientId . ")";
         mysql_query($query);
       }
 
-    **/
     
 
 	}
