@@ -12,10 +12,11 @@
 	<p>Want to make a new recipe? <a href="./addRecipe.php">Add one here!</a> Want to get rid of one? <a href="./deleteRecipe.php">Delete it!</a></p>
 	<table class="table table-striped table-hover table-bordered">
 	<tr>
+		<th>Name</th>
 		<th>Quality</th>
 		<th>Difficulty</th>
 		<th>Reviews</th>
-		<th>Name</th>
+		<th>Edit Link</th>
 	</tr>
 <?php
 	$row = mysql_fetch_array($result);
@@ -27,6 +28,7 @@
 			<td>" . number_format((float)$row['avgQuality'], 2, '.', '') . "</td>
 			<td>" . number_format((float)$row['avgDifficulty'], 2, '.', '') . "</td>
 			<td>" . $row['reviewCount'] . "</td>
+			<td><a href='editRecipe.php?id=" . $row['id'] . "'>Edit this recipe!</a></td>
 		</tr>";
 		$row = mysql_fetch_array($result);
 	}

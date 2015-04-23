@@ -23,7 +23,7 @@
             if($registerquery)
             {
                 echo "<h1>Success</h1>";
-                echo "<p>Your account was successfully created. Please <a href=\"index.php\">click here to login</a>.</p>";
+                echo "<p>Your account was successfully created. Please <a href=\"login.php\">click here to login</a>.</p>";
             }
             else
             {
