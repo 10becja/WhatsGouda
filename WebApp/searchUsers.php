@@ -12,7 +12,7 @@
 	echo '<table class="table table-striped table-hover table-bordered">';
 	
 	
-	echo "<tr><th>" . "creatorUsername" . "</th><th>" . "avgQuality" . "</th></tr>";
+	echo "<tr><th>" . "Username" . "</th><th>" . "Average Quality Rating" . "</th></tr>";
 	while($row = mysql_fetch_array($result)){
 		echo "<tr><td><a href='viewUserRecipe.php?creatorUsername=" . $row['creatorUsername'] . "'>". $row['creatorUsername'] . "</th><th>" . number_format((float)$row['avgQuality'], 2, '.', '') . "</td></tr>";
 			

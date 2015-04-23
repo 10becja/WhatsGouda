@@ -9,7 +9,6 @@
 ?>
 	<div>
 	<h1>Your Recipes:</h1>
-	<!-- TODO: Add links to addRecipe and deleteRecipe here -->
 	<p>Want to make a new recipe? <a href="./addRecipe.php">Add one here!</a> Want to get rid of one? <a href="./deleteRecipe.php">Delete it!</a></p>
 	<table class="table table-striped table-hover table-bordered">
 	<tr>
@@ -24,10 +23,10 @@
 	{
 		echo "
 		<tr>
+			<td><a href='viewRecipe.php?id=" . $row['id'] . "'>" . $row['name'] . "</a></td>
 			<td>" . number_format((float)$row['avgQuality'], 2, '.', '') . "</td>
 			<td>" . number_format((float)$row['avgDifficulty'], 2, '.', '') . "</td>
 			<td>" . $row['reviewCount'] . "</td>
-			<td><a href='viewRecipe.php?id=" . $row['id'] . "'>" . $row['name'] . "</a></td>
 		</tr>";
 		$row = mysql_fetch_array($result);
 	}
@@ -36,7 +35,6 @@
 
 	$query = 'SELECT Ingredient.name AS ingredientName, Ingredient.id as ingredientID FROM Has, Ingredient WHERE Has.username="' . $username . '" AND Ingredient.id=Has.ingredientID';
 	$result = mysql_query($query);
-	//TODO: Add links to addIngredient and deleteIngredient here
 	echo "<div>";
 	echo "<h1>Your Ingredient Basket:</h1>";
 		while($row = mysql_fetch_array($result)) {
