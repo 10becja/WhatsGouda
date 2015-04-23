@@ -16,7 +16,7 @@ function printRecipe($recipe) {
 	printIngredientNames($recipeId);
 	echo "</ul>";
 	echo "<h3>Instructions:</h3>";
-	echo "<p>$body</p>";
+	echo "<p>" . nl2br($body) . "</p>";
 }
 
 function printIngredientNames($recipeId){
